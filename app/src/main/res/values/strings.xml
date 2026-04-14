@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CampusConnect</string>
+    <!-- REPLACE THIS with the type 3 client_id from your NEW google-services.json -->
+    <string name="default_web_client_id">278418951597-uvbhv8v8v8v8v8v8v8v8v8v8v8v8v8v8.apps.googleusercontent.com</string>
+    
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+</resources>

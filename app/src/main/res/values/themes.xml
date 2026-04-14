@@ -1,0 +1,24 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.CampusConnect" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/primaryRed</item>
+        <item name="android:windowBackground">@color/light_gray_bg</item>
+        <item name="android:statusBarColor">@color/primaryRed</item>
+    </style>
+
+    <style name="Theme.CampusConnect" parent="Base.Theme.CampusConnect" />
+
+    <!-- Instant Splash Theme -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/rkulogo</item>
+        <item name="postSplashScreenTheme">@style/Theme.CampusConnect</item>
+    </style>
+    
+    <!-- Legacy Instant Splash Theme (Using windowBackground) -->
+    <style name="Theme.Splash" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>
