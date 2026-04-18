@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.campusconnect.SplashFragment"
+        android:label="Splash"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.campusconnect.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordSelectionFragment"
+            app:destination="@id/forgotPasswordSelectionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.campusconnect.RegistrationFragment"
+        android:label="Registration"
+        tools:layout="@layout/fragment_registration">
+        <action
+            android:id="@+id/action_registrationFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/registrationFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.campusconnect.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action android:id="@+id/action_homeFragment_to_skillsFragment" app:destination="@id/skillsFragment" />
+        <action android:id="@+id/action_homeFragment_to_startupFragment" app:destination="@id/startupFragment" />
+        <action android:id="@+id/action_homeFragment_to_eventsFragment" app:destination="@id/eventsFragment" />
+        <action android:id="@+id/action_homeFragment_to_profileFragment" app:destination="@id/profileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/skillsFragment"
+        android:name="com.example.campusconnect.SkillsFragment"
+        android:label="Skills"
+        tools:layout="@layout/fragment_skills">
+        <action android:id="@+id/action_skillsFragment_to_profileFragment" app:destination="@id/profileFragment" />
+        <action android:id="@+id/action_skillsFragment_to_loginFragment" app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/startupFragment"
+        android:name="com.example.campusconnect.StartUpFragment"
+        android:label="StartUp Hub"
+        tools:layout="@layout/fragment_startup">
+        <action android:id="@+id/action_startupFragment_to_startupDetailsFragment" app:destination="@id/startupDetailsFragment" />
+        <action android:id="@+id/action_startupFragment_to_postStartupFragment" app:destination="@id/postStartupFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/postStartupFragment"
+        android:name="com.example.campusconnect.PostStartupFragment"
+        android:label="Post Idea"
+        tools:layout="@layout/fragment_post_startup" />
+
+    <fragment
+        android:id="@+id/startupDetailsFragment"
+        android:name="com.example.campusconnect.StartUpDetailsFragment"
+        android:label="StartUp Details"
+        tools:layout="@layout/fragment_startup_details" />
+
+    <fragment
+        android:id="@+id/eventsFragment"
+        android:name="com.example.campusconnect.EventsFragment"
+        android:label="Events"
+        tools:layout="@layout/fragment_events" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.campusconnect.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+        <argument
+            android:name="userId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action android:id="@+id/action_profileFragment_to_loginFragment" app:destination="@id/loginFragment" app:popUpTo="@id/nav_graph" app:popUpToInclusive="true"/>
+        <action android:id="@+id/action_profileFragment_to_aboutUsFragment" app:destination="@id/aboutUsFragment" />
+        <action android:id="@+id/action_profileFragment_to_chatListFragment" app:destination="@id/chatListFragment" />
+        <action android:id="@+id/action_profileFragment_to_editProfileFragment" app:destination="@id/editProfileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.campusconnect.EditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile" />
+
+    <fragment
+        android:id="@+id/aboutUsFragment"
+        android:name="com.example.campusconnect.AboutUsFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_about_us" />
+
+    <fragment
+        android:id="@+id/chatListFragment"
+        android:name="com.example.campusconnect.ChatListFragment"
+        android:label="Chats"
+        tools:layout="@layout/fragment_chat_list">
+        <action
+            android:id="@+id/action_chatListFragment_to_userListFragment"
+            app:destination="@id/userListFragment" />
+        <action
+            android:id="@+id/action_chatListFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userListFragment"
+        android:name="com.example.campusconnect.UserListFragment"
+        android:label="Select User"
+        tools:layout="@layout/fragment_user_list">
+        <action
+            android:id="@+id/action_userListFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.example.campusconnect.ChatFragment"
+        android:label="Chat"
+        tools:layout="@layout/fragment_chat" />
+
+    <!-- Forgot Password Flow Fragments -->
+    <fragment
+        android:id="@+id/forgotPasswordSelectionFragment"
+        android:name="com.example.campusconnect.ForgotPasswordSelectionFragment"
+        android:label="Reset Options"
+        tools:layout="@layout/fragment_forgot_password_selection">
+        <action
+            android:id="@+id/action_forgotPasswordSelectionFragment_to_otpVerificationFragment"
+            app:destination="@id/otpVerificationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/otpVerificationFragment"
+        android:name="com.example.campusconnect.OtpVerificationFragment"
+        android:label="Verify OTP"
+        tools:layout="@layout/fragment_otp_verification">
+        <argument
+            android:name="phoneNumber"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_otpVerificationFragment_to_resetPasswordFragment"
+            app:destination="@id/resetPasswordFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/resetPasswordFragment"
+        android:name="com.example.campusconnect.ResetPasswordFragment"
+        android:label="New Password" />
+
+</navigation>
