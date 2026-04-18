@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_users"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="Student" />
+    <item
+        android:id="@+id/nav_skills"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="Skills" />
+    <item
+        android:id="@+id/nav_ideas"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:title="Start Up" />
+    <item
+        android:id="@+id/nav_events"
+        android:icon="@android:drawable/ic_menu_month"
+        android:title="Events" />
+    
+    <!-- Added Profile to Sidebar -->
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        android:title="My Profile" />
+</menu>

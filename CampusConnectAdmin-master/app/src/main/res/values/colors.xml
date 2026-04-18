@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryRed">#FF2D2D</color>
+    <color name="lightGray">#F5F5F5</color>
+    <color name="cardGray">#EDEDED</color>
+    <color name="textDark">#1A1A1A</color>
+    <color name="textLight">#888888</color>
+</resources>

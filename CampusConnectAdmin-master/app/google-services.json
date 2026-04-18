@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "266409505141",
+    "project_id": "firestoredemo-8fba5",
+    "storage_bucket": "firestoredemo-8fba5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266409505141:android:ce83ad386c72f54948a33c",
+        "android_client_info": {
+          "package_name": "com.example.campusconnectadmin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBStYvjZ8SANLX-Rq2_eN9RFw3VeZVBWaU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
