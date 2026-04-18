@@ -83,7 +83,14 @@
         android:label="StartUp Hub"
         tools:layout="@layout/fragment_startup">
         <action android:id="@+id/action_startupFragment_to_startupDetailsFragment" app:destination="@id/startupDetailsFragment" />
+        <action android:id="@+id/action_startupFragment_to_postStartupFragment" app:destination="@id/postStartupFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/postStartupFragment"
+        android:name="com.example.campusconnect.PostStartupFragment"
+        android:label="Post Idea"
+        tools:layout="@layout/fragment_post_startup" />
 
     <fragment
         android:id="@+id/startupDetailsFragment"

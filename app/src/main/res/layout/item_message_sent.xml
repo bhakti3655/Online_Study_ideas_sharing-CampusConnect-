@@ -23,6 +23,20 @@
             android:textColor="@android:color/white"
             android:textSize="14sp" />
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardSentImage"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp">
+            <ImageView
+                android:id="@+id/ivSentImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+        </com.google.android.material.card.MaterialCardView>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,12 +53,13 @@
                 android:textColor="#E0E0E0"
                 android:textSize="10sp" />
 
-<!--            <ImageView-->
-<!--                android:id="@+id/ivMessageTicks"-->
-<!--                android:layout_width="14dp"-->
-<!--                android:layout_height="14dp"-->
-<!--                android:layout_marginStart="4dp"-->
-<!--                app:tint="@android:color/white" />-->
+            <ImageView
+                android:id="@+id/ivMessageTicks"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginStart="4dp"
+                android:src="@drawable/send"
+                app:tint="@android:color/white" />
         </LinearLayout>
     </LinearLayout>
 

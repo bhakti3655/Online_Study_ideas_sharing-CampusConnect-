@@ -31,7 +31,13 @@ class MainActivity : AppCompatActivity() {
         // Show/Hide bottom nav based on screen
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.splashFragment, R.id.loginFragment, R.id.registrationFragment, R.id.chatFragment -> {
+                R.id.splashFragment, 
+                R.id.loginFragment, 
+                R.id.registrationFragment, 
+                R.id.chatFragment,
+                R.id.forgotPasswordSelectionFragment,
+                R.id.otpVerificationFragment,
+                R.id.resetPasswordFragment -> {
                     binding.bottomNavigation.visibility = View.GONE
                 }
                 else -> {

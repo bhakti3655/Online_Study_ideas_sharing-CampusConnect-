@@ -60,12 +60,11 @@ class SkillAdapter(
             holder.binding.llSkillActions.visibility = View.GONE
             holder.binding.llPublicActions.visibility = View.VISIBLE
             
-            // Email Logic
+            // Fixed Email Logic
             holder.binding.btnEmail.setOnClickListener {
-                skill.studentEmail?.let { email ->
+                if (!skill.studentEmail.isNullOrEmpty()) {
                     val intent = Intent(Intent.ACTION_SENDTO).apply {
-                        data = Uri.parse("mailto:")
-                        putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
+                        data = Uri.parse("mailto:${skill.studentEmail}")
                         putExtra(Intent.EXTRA_SUBJECT, "Query regarding your skill: ${skill.skillName}")
                     }
                     try {
@@ -73,8 +72,21 @@ class SkillAdapter(
                     } catch (e: Exception) {
                         Toast.makeText(holder.itemView.context, "No email app found", Toast.LENGTH_SHORT).show()
                     }
-                } ?: run {
-                    Toast.makeText(holder.itemView.context, "Email address not available", Toast.LENGTH_SHORT).show()
+                } else {
+                    // Fallback: Fetch email from database if missing in skill object
+                    FirebaseDatabase.getInstance().reference.child("Users").child(skill.studentId!!).child("email").get()
+                        .addOnSuccessListener { snapshot ->
+                            val email = snapshot.value?.toString()
+                            if (!email.isNullOrEmpty()) {
+                                val intent = Intent(Intent.ACTION_SENDTO).apply {
+                                    data = Uri.parse("mailto:$email")
+                                    putExtra(Intent.EXTRA_SUBJECT, "Query regarding your skill: ${skill.skillName}")
+                                }
+                                holder.itemView.context.startActivity(Intent.createChooser(intent, "Send Email..."))
+                            } else {
+                                Toast.makeText(holder.itemView.context, "Email address not available", Toast.LENGTH_SHORT).show()
+                            }
+                        }
                 }
             }
 

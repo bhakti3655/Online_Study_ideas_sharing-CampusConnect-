@@ -15,7 +15,7 @@ object EmailSender {
     private const val SENDER_EMAIL = "campusconnect2801@gmail.com"
     private const val SENDER_PASSWORD = "rppy bkhb wpai zspj"
 
-    fun sendWelcomeEmail(recipientEmail: String, userName: String) {
+    private fun getSession(): Session {
         val properties = Properties().apply {
             put("mail.smtp.auth", "true")
             put("mail.smtp.starttls.enable", "true")
@@ -23,13 +23,15 @@ object EmailSender {
             put("mail.smtp.port", "587")
         }
 
-        val session = Session.getInstance(properties, object : Authenticator() {
+        return Session.getInstance(properties, object : Authenticator() {
             override fun getPasswordAuthentication(): PasswordAuthentication {
                 return PasswordAuthentication(SENDER_EMAIL, SENDER_PASSWORD)
             }
         })
+    }
 
-        // Generate a random 6-digit code for "Professional" look
+    fun sendWelcomeEmail(recipientEmail: String, userName: String) {
+        val session = getSession()
         val otpCode = (100000..999999).random().toString()
 
         try {
@@ -57,6 +59,50 @@ object EmailSender {
                     Best Regards,
                     The CampusConnect Team
                     Official Website: campusconnect.edu
+                """.trimIndent()
+                
+                setText(emailContent)
+            }
+
+            Thread {
+                try {
+                    Transport.send(message)
+                } catch (e: MessagingException) {
+                    e.printStackTrace()
+                }
+            }.start()
+
+        } catch (e: MessagingException) {
+            e.printStackTrace()
+        }
+    }
+
+    fun sendPasswordResetOtp(recipientEmail: String, otp: String) {
+        val session = getSession()
+
+        try {
+            val message = MimeMessage(session).apply {
+                setFrom(InternetAddress(SENDER_EMAIL, "CampusConnect Support"))
+                addRecipient(Message.RecipientType.TO, InternetAddress(recipientEmail))
+                subject = "CampusConnect - Password Reset OTP"
+                
+                val emailContent = """
+                    Hello,
+                    
+                    You have requested to reset your password for your CampusConnect account.
+                    
+                    Your verification code is:
+                    
+                    -------------------------------------------
+                    OTP CODE: $otp
+                    -------------------------------------------
+                    
+                    Please enter this code in the app to proceed with resetting your password. This code is valid for a limited time.
+                    
+                    If you did not request a password reset, please ignore this email or contact support if you have concerns about your account security.
+                    
+                    Best Regards,
+                    The CampusConnect Team
                 """.trimIndent()
                 
                 setText(emailContent)
